@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HTML, CSS and JavaScript Telegram reveal effect on theme switch"
+    />
+    <title>Telegram Reveal Effect Theme Switcher</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="theme-switcher-view"></div>
+    <header>
+      <button type="button">toggle</button>
+    </header>
+    <main>
+      <div class="profile-container">
+        <div class="profile-info-container">
+          <picture>
+            <img
+              class="avatar"
+              src="https://avatars.githubusercontent.com/u/50084167?v=4"
+              alt="Mitacho's GitHub avatar"
+              height="150px"
+              width="150px"
+            />
+          </picture>
+          <h1>Mitacho</h1>
+          <a
+            href="https://github.com/Mitacho"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visit Mitacho's GitHub profile"
+            class="button"
+          >
+            Visit GitHub profile
+
+            <svg
+              style="margin-left: 0.5rem"
+              width="25"
+              height="24"
+              viewBox="0 0 25 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.5 17L17 7.5"
+                stroke="var(--on-primary-color)"
+                stroke-width="2"
+                stroke-linecap="square"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M7.5 7H17.5V17"
+                stroke="var(--on-primary-color)"
+                stroke-width="2"
+                stroke-linecap="square"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
+    <script src="./main.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+/* ===== default ===== */
+
+:root {
+  --surface-color: #1f1f1f;
+  --on-surface-color: #e6e1e5;
+  --on-surface-variant-color: #cac4d0;
+  --primary-color: #d0bcff;
+  --on-primary-color: #381e72;
+  --reveal-animation-duration: 0.5s;
+}
+
+html[data-theme="light"] {
+  --surface-color: #ffffff;
+  --on-surface-color: #1c1b1f;
+  --primary-color: #6750a4;
+  --on-surface-variant-color: #49454f;
+  --on-primary-color: #ffffff;
+}
+
+html[data-theme="dark"] {
+  --surface-color: #1f1f1f;
+  --on-surface-color: #e6e1e5;
+  --on-surface-variant-color: #cac4d0;
+  --primary-color: #d0bcff;
+  --on-primary-color: #381e72;
+  --reveal-animation-duration: 0.5s;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+button,
+input,
+textarea {
+  font-family: "Roboto", sans-serif;
+  color: var(--on-surface-color);
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--surface-color);
+}
+
+header,
+main,
+footer {
+  padding: 1rem;
+}
+
+button,
+.button {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 400ms;
+  color: var(--on-primary-color);
+  background-color: var(--primary-color);
+  padding: 0 1.45rem;
+  height: 2.75rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  outline: 0;
+  border: 0;
+  border-radius: 1.325rem;
+  cursor: pointer;
+}
+
+/* ===== github profile ===== */
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 6.75rem);
+}
+
+.profile-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-info-container .button {
+  margin-top: 1rem;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+/* ===== button ripple effect ===== */
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple var(--reveal-animation-duration) linear;
+}
+
+.ripple-light {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.ripple-dark {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ===== reveal effect stuff ===== */
+
+.theme-switcher-view {
+  z-index: 100;
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  transition: clip-path var(--reveal-animation-duration);
+}
+
+.circle-enter-active {
+  animation: var(--reveal-animation-duration) circle-enter ease-in-out;
+  --circle-start-percent: 0%;
+  --circle-end-percent: 200%;
+}
+.circle-leave-active {
+  animation: var(--reveal-animation-duration) circle-leave ease-in-out;
+  --circle-start-percent: 200%;
+  --circle-end-percent: 0%;
+}
+
+@keyframes circle-enter {
+  0% {
+    clip-path: circle(
+      var(--circle-start-percent) at var(--circle-position-x)
+        var(--circle-position-y)
+    );
+  }
+  100% {
+    clip-path: circle(
+      var(--circle-end-percent) at var(--circle-position-x)
+        var(--circle-position-y)
+    );
+  }
+}
+
+@keyframes circle-leave {
+  0% {
+    clip-path: circle(
+      var(--circle-start-percent) at var(--circle-position-x)
+        var(--circle-position-y)
+    );
+  }
+  100% {
+    clip-path: circle(
+      var(--circle-end-percent) at var(--circle-position-x)
+        var(--circle-position-y)
+    );
+  }
+}
